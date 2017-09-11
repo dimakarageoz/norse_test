@@ -13,6 +13,10 @@ import path from '../../Services/path'
 })
 export class UserComponent implements OnInit {
     id: number;
+    name = new FormControl();
+    surname = new FormControl();
+    email = new FormControl();
+    phone = new FormControl();
     private user: User;
     constructor(
         private route: ActivatedRoute,
@@ -28,9 +32,25 @@ export class UserComponent implements OnInit {
     }
     edit(user) {
         let valid = true;
-        for (let item in user) {
-            if(!user[item]){ valid = false; break}
+        let req = {
+            name: '',
+            surname: '',
+            email: '',
+            phone: ''
         }
-        console.log(valid)
+        for (let item in user) {
+            if(!user[item].valid && user[item].touched) {
+                valid = false
+            } else if (!user[item].touched) {
+                req[item] = this.user[item]
+            } else {
+                req[item] = user[item].value
+            }
+        }
+        if(valid) {
+            this.http.edit(this.id, req, (res) => {
+                console.log('Yeeeee')
+            })
+        }
     }
 }

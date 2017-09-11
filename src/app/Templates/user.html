@@ -1,28 +1,24 @@
 <div>
     <form
         class="info"
-        (ngSubmit)="edit({ name: name.value,
-                surname: surname.value,
-                email: email.value,
-                phone: phone.value
-             })"
+        (ngSubmit)="edit({name: name, surname: surname, email: email, phone: phone})"
     >    
         <p class="info__title">User profile</p>
         <div class="info__property">
             <p class="info__field">Name:</p>
-            <input class="info__input" #name value={{user?.name}} required />
+            <input class="info__input" [formControl]="name" value={{user?.name}} required />
         </div>
         <div class="info__property">
             <p class="info__field">Surname:</p>
-            <input class="info__input" #surname value={{user?.surname}} required />
+            <input class="info__input" [formControl]="surname" value={{user?.surname}} required />
         </div>
         <div class="info__property">
             <p class="info__field">Email:</p>
-            <input class="info__input" #email value={{user?.email}} required email />
+            <input class="info__input" [formControl]="email" value={{user?.email}} required email />
         </div>
         <div class="info__property">
             <p class="info__field">Phone:</p>
-            <input class="info__input" #phone value={{user?.phone}} required pattern="[+][0-9]{9,}" />
+            <input class="info__input" [formControl]="phone" value={{user?.phone}} required pattern="[+][0-9]{9,}" />
         </div>
         <button class="user__button">EDIT</button>
     </form>
