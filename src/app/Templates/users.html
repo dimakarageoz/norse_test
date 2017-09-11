@@ -1,0 +1,36 @@
+<div class="user">
+    <div class="user__action">
+    <p class="user__title">Participants list</p>
+    <div class="user__input-block">
+        <input
+            class="user__input"
+            [(ngModel)]="search"
+            (ngModelChange)="searchAction()"
+            placeholder="Search by email"
+        />
+        <button
+            class="user__button"
+            (click)="dialogToggle()"
+        >
+            Add
+        </button>
+    </div>
+    </div>
+    <div *ngIf="listUsers.length >0;else noContent">
+        <div class="user__list">
+            <div  class="user__list__item" *ngFor="let item of listUsers">
+                <a routerLink="/user/{{item.id}}">{{item.email}}</a>
+                <i class="material-icons user__list__delete" (click)="delete(item.id)">delete_forever</i>
+            </div>
+        </div>
+    </div>
+    <ng-template #noContent>
+        <p class="user__list no-content">List is empty ...</p>
+    </ng-template>
+<app-user-dialog
+    *ngIf="dialog"
+    (onSubmit)="onSend($event)"
+    (toggle)="dialogToggle($event)"
+>
+</app-user-dialog>
+</div>

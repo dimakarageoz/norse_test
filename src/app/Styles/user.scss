@@ -1,0 +1,85 @@
+.user {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    &__action {
+        display: flex;
+        flex-direction: row;
+        height: 60px;
+        padding: 10px 40px 10px 50px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background: rgba($extra-black-main, 0.4);
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__list {
+        margin-top: 20px;
+        height: 90%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        overflow: auto;
+        &__item {
+            padding: 23px;
+            width: 80%;
+            align-items: center;
+            color: #b9b9b9;
+            padding-bottom: 10px;
+            font-size: 17px;
+            box-sizing: border-box;
+            border-bottom: 1px solid $main;
+            font-family: 'Oxygen', sans-serif;
+            &:hover {
+                background: rgba($extra-black-main, 0.15)
+            }
+        }
+        &__delete {
+            float: right;
+            color: $main;
+            cursor: pointer;
+        }
+    }
+    &__title {
+        font-size: 21px;
+        text-align: center;
+        color: #ededed;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
+    }
+    &__input-block {
+        display: flex;
+        height: 30px;
+        align-items: center;
+        justify-content: space-between
+    }
+    &__input {
+        width: 200px;
+        margin-right: 20px;
+        padding: 8px 10px;
+        border-radius: 15px;
+        border: 0;
+        background: rgba(1, 1, 1, 0.4);
+        color: #c9c9c9;
+        font-family: 'Oxygen', sans-serif;
+    }
+    &__button {
+        width: 100px;
+        background: $black-main;
+        height: 36px;
+        border-radius: 4px;
+        font-size: 18px;
+        color: #dcdbdb;
+        border: 0;
+        &:hover {
+            background: rgba($black-main, 0.8);
+        }
+    }
+}
+
+.no-content {
+    font-size: 26px;
+    font-family: 'Oxygen', sans-serif;
+    color: $main;
+}

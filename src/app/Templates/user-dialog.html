@@ -1,0 +1,30 @@
+<div class="full-layout" (click)="toggle.emit()"></div>
+    <div class="auth">
+        <p class="auth__title">User's form</p>
+        <form [formGroup]="myForm" class="auth__form" (ngSubmit)="onSubmit.emit(myForm)">
+            <div class="auth__input-block">
+                <p>Input name</p>
+                <input class="auth__input" name="name" formControlName="name" />
+            </div>
+            <div class="auth__input-block">
+                <p>Input surname</p>
+                <input class="auth__input" name="surname" formControlName="surname" />
+            </div>
+            <div class="auth__input-block">
+                <p>Input email</p>
+                <input class="auth__input" name="email" formControlName="email" email />
+            </div>
+            <div class="auth__input-block">
+                <p>Input phone</p>
+                <input class="auth__input" type="tel" name="phone" formControlName="phone" />
+            </div>
+            <button
+                class="auth__submit"
+                type="submit"
+                [disabled]="myForm.invalid"
+                [ngClass]="{ 'disabled': myForm.invalid}"
+            >
+                ADD
+            </button>
+        </form>
+    </div>
