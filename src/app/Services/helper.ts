@@ -10,8 +10,13 @@ export const url = (obj:{
     
     let url = `${host}${obj.path}`;
     
-    if(obj.id)
-        url += `/${obj.id}`;
+    if(obj.id) {
+        url = `${host}`
+        obj.path.split('%').map(item => {
+            url += (item !== 'id') ? item : obj.id
+        })
+    }
+
     
     if(obj.query) {
         let query = Object.keys(obj.query).map(item => [

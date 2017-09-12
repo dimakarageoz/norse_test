@@ -1,16 +1,16 @@
 export default {
     user: {
         list: '/users',
-        itemOne: '/users',
+        itemOne: '/users/%id%',
         create: '/users',
-        delete: '/users',
-        edit: '/users'
+        delete: '/users/%id%',
+        edit: '/users/%id%'
     },
      group: {
         list: '/groups',
-        itemOne: '/groups',
+        itemOne: '/groups/%id%',
         create: '/groups',
-        delete: '/groups',
-        edit: '/groups',
+        delete: '/groups/%id%',
+        edit: '/groups/%id%',
     }
 }
