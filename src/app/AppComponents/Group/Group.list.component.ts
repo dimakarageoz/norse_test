@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms'
 import path from '../../Services/path'
 import { Group } from '../../Services/Objects'
-import { ApiService } from '../../Services/API.service'
+import { GroupService } from '../../Services/index.service'
 
 
 @Component({
@@ -13,13 +13,11 @@ export class GroupsComponent implements OnInit {
 
     search: string;
     dialog: boolean = false;
-    groups: Group[] = [];
+    groups: Array<Group> = [];
     loaded: boolean = false;
     text: string = '';
-    listGroups: Group[] = [];
-    constructor(private http: ApiService) {
-        this.http.path = path.group;
-    }
+    listGroups: Array<Group> = [];
+    constructor(private http: GroupService) {}
     getGroup() {
         this.http.getList((res) => {
             this.listGroups = res;
@@ -38,7 +36,6 @@ export class GroupsComponent implements OnInit {
     }
     onSend(name) {
         this.dialogToggle()
-        console.log(name)
         this.http.post({ name: name, participants: [] }, (res) => {
             this.getGroup();
             this.searchAction();

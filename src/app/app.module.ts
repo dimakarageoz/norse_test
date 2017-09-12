@@ -4,7 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router'
 
-import { ApiService } from './Services/API.service'
+import { ApiService } from './Services/api.service'
+import { UserService, GroupService } from './Services/index.service'
 
 import { AppComponent } from './AppComponents/app.component';
 import { UsersComponent } from './AppComponents/User/User.list.component';
@@ -43,7 +44,9 @@ const routes: Routes = [
     HttpModule
   ],
   providers: [
-    ApiService
+    ApiService,
+    UserService,
+    GroupService
   ],
   bootstrap: [AppComponent]
 })

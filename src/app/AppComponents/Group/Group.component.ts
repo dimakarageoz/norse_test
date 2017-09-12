@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
-import { ApiService } from '../../Services/API.service'
+import { GroupService, UserService } from '../../Services/index.service'
 import path from '../../Services/path'
 
 
@@ -13,20 +13,19 @@ export class GroupComponent {
     id: number;
     dialog: boolean = false;
     participants: any[]= [];
+    groupName: string;
     loaded: boolean = false;
     constructor(
         private route: ActivatedRoute,
-        private http: ApiService,
-        private httpUser: ApiService,
+        private http: GroupService,
+        private httpUser: UserService,
     ) {
-        this.http.path = path.group;
-        // this.httpUser.path = path.user;
         this.id = route.snapshot.params['id'];
     }
 
     getGroup() {
         this.http.getOne(this.id, (res) => {
-            console.log(res)
+            this.groupName = res.name;
             this.participants = res.participants;
             this.loaded = true;
         })

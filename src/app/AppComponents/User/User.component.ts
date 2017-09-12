@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ApiService } from '../../Services/API.service'
+import { UserService } from '../../Services/index.service'
 import { User } from '../../Services/Objects'
 import path from '../../Services/path'
 
@@ -22,9 +22,8 @@ export class UserComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private http: ApiService,
+        private http: UserService,
     ) {
-        this.http.path = path.user;
         this.id = route.snapshot.params['id'];
     }
     ngOnInit() {

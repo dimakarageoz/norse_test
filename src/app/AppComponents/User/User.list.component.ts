@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms'
 import  path from '../../Services/path'
 import { User } from '../../Services/Objects'
-import { ApiService } from '../../Services/API.service'
+import { UserService } from '../../Services/index.service'
 
 
 @Component({
@@ -16,9 +16,7 @@ export class UsersComponent implements OnInit {
     users: Array<User> = [];
     loaded: boolean = false;
     listUsers: Array<User> = [];
-    constructor( private http: ApiService) {
-        this.http.path = path.user;
-    }
+    constructor( private http: UserService) {}
     getUsers() {
         this.http.getList((res) => {
             this.listUsers = res;

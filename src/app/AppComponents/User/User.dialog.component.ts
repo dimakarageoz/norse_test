@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
-import { User } from '../../Services/Objects'
 
 @Component({
     selector: 'app-user-dialog',

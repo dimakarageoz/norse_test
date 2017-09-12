@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgModel, FormControl  } from '@angular/forms'
-import { ApiService } from '../../Services/API.service'
 
 
 @Component({
