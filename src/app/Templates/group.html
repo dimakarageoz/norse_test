@@ -1,0 +1,24 @@
+
+<div class="list">
+    <div class="list__action">
+        <p class="list__title">Group/{{id}}</p>
+        <div class="list__input-block">
+            <button class="list__button" (click)="dialogToggle()">
+                Add
+            </button>
+        </div>
+    </div>
+<div class="overflow" *ngIf="participants.length > 0 || !loaded;else noContent">
+    <div class="list__table">
+        <div class="list__table__item" *ngFor="let item of participants">
+            <a routerLink="/group/{{item.id}}">{{item.email}}</a>
+            <i class="material-icons list__table__delete" (click)="delete(item.id)">close</i>
+        </div>
+    </div>
+</div>
+<ng-template #noContent>
+    <p class="list__table no-content">List is empty ...</p>
+</ng-template>
+    <app-participants-dialog *ngIf="dialog" (onSubmit)="onSend($event)" (toggle)="dialogToggle($event)">
+    </app-participants-dialog>
+</div>

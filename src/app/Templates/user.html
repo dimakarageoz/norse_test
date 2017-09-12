@@ -1,8 +1,5 @@
 <div>
-    <form
-        class="info"
-        (ngSubmit)="edit({name: name, surname: surname, email: email, phone: phone})"
-    >    
+    <div class="info">    
         <p class="info__title">User profile</p>
         <div class="info__property">
             <p class="info__field">Name:</p>
@@ -20,6 +17,12 @@
             <p class="info__field">Phone:</p>
             <input class="info__input" [formControl]="phone" value={{user?.phone}} required pattern="[+][0-9]{9,}" />
         </div>
-        <button class="user__button">EDIT</button>
-    </form>
+        <button
+            (click)="edit({name: name, surname: surname, email: email, phone: phone})"
+            class="list__button"
+        >
+            EDIT
+        </button>
+        <p *ngIf="response" class="info__response">{{response}}</p>
+    </div>
 </div>

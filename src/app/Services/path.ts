@@ -11,6 +11,6 @@ export default {
         itemOne: '/groups',
         create: '/groups',
         delete: '/groups',
-        edit: '/groups'
+        edit: '/groups',
     }
 }

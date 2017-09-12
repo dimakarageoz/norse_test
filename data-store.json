@@ -1,12 +1,44 @@
 {
   "users": [
     {
-      "name": "dimadddqwdqwd",
-      "surname": "karageozzzzz",
-      "email": "wqdqw2dwd@dqwd.cq",
-      "phone": "+38023423411",
+      "name": "dima",
+      "surname": "karageoz",
+      "email": "dkarageoz@gmail.com",
+      "phone": "+380123123123",
       "id": 1
+    },
+    {
+      "name": "oleg",
+      "surname": "telpis",
+      "email": "olegtelpis@gmail.com",
+      "phone": "+3809910012",
+      "id": 2
+    },
+    {
+      "name": "olga",
+      "surname": "budova",
+      "email": "olgabudova55@gmail.com",
+      "phone": "+380672412219",
+      "id": 3
+    },
+    {
+      "name": "ann",
+      "surname": "nokarageoz",
+      "email": "akarageoz@gmail.com",
+      "phone": "+3801231231",
+      "id": 4
     }
   ],
-  "groups": []
+  "groups": [
+    {
+      "name": "my group",
+      "participants": [],
+      "id": 2
+    },
+    {
+      "name": "ann group",
+      "participants": [],
+      "id": 3
+    }
+  ]
 }

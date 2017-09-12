@@ -13,20 +13,29 @@ export class UsersComponent implements OnInit {
     
     search: string;
     dialog: boolean = false;
-    users : User[] = [];
-    text: string = '';
-    listUsers: User[] = [];
+    users: Array<User> = [];
+    loaded: boolean = false;
+    listUsers: Array<User> = [];
     constructor( private http: ApiService) {
         this.http.path = path.user;
     }
-    ngOnInit() {
+    getUsers() {
         this.http.getList((res) => {
             this.listUsers = res;
             this.users = res;
-        })
+            this.loaded = true;
+        }, ['name', 'surname'])
+    }
+    ngOnInit() {
+        this.getUsers()
     }
     searchAction() {
-        this.listUsers = this.users.filter(item => item.email.indexOf(this.search) == 0)
+        this.listUsers = (this.search) ? this.users.filter(item => {
+            const fullName = `${item.name} ${item.surname}`   
+            if(fullName.indexOf(this.search) == 0)
+                return true;
+            return false;
+            }) : this.users
     }
     dialogToggle() {
         this.dialog = !this.dialog;
@@ -34,8 +43,9 @@ export class UsersComponent implements OnInit {
     onSend(form) {
         this.dialogToggle()  
         this.http.post(form.value, (res) => {
-            this.users.push(new User(res));
-        })
+            this.getUsers();
+            this.searchAction()
+       })
     }
     delete(id) {
         this.http.delete(id, () => {

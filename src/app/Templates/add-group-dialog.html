@@ -1,0 +1,13 @@
+<div class="full-layout" (click)="toggle.emit()"></div>
+<div class="dialog">
+    <p class="dialog__title">Create group</p>
+    <form  class="dialog__form" (ngSubmit)="onSubmit.emit(name.value)">
+        <div class="dialog__input-block">
+            <p>Input name</p>
+            <input class="dialog__input form-control" [formControl]="name" required minlength="4"/>
+        </div>
+        <button class="dialog__submit" type="submit" [disabled]="!name.valid" [ngClass]="{ 'disabled': !name.valid}">
+            ADD
+        </button>
+    </form>
+</div>

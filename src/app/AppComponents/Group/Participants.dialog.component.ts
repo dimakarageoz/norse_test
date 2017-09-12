@@ -1,16 +1,16 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { NgModel, FormControl  } from '@angular/forms'
+import { NgModel, FormControl } from '@angular/forms'
 import { ApiService } from '../../Services/API.service'
 
 
 @Component({
-    selector: 'app-group-dialog',
-    templateUrl: './../../Templates/add-group-dialog.html'
+    selector: 'app-participants-dialog',
+    templateUrl: './../../Templates/add-participants-dialog.html'
 })
 
-export class GroupDialogComponent {
+export class ParticipantsDialogComponent {
 
-    name = new FormControl();
+    email = new FormControl();
     @Output() onSubmit = new EventEmitter<string>();
     @Output() toggle = new EventEmitter<any>();
 }

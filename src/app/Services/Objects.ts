@@ -21,10 +21,14 @@ export class Group {
         this.id = obj.id;
         this.participants = obj.participants;
     }
+
     name: string = '';
     id: number = 0;
+    
     participants: Array<{
-        id: number;
-        name: string;
+        participant: {
+            id: number;
+            email: string;
+        }    
     }> = [];
 }

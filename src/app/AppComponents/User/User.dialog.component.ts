@@ -4,16 +4,16 @@ import { User } from '../../Services/Objects'
 
 @Component({
     selector: 'app-user-dialog',
-    templateUrl: './../../Templates/user-dialog.html'
+    templateUrl: './../../Templates/add-user-dialog.html'
 })
 export class UserDialogComponent {
     myForm: FormGroup = new FormGroup({
-        'name': new FormControl('',
+        'name': new FormControl('',[
             Validators.required
-        ),
-        'surname': new FormControl('',
+        ]),
+        'surname': new FormControl('',[
             Validators.required
-        ),
+        ]),
         'email': new FormControl('', [
             Validators.required,
             Validators.email

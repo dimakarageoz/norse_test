@@ -11,14 +11,17 @@ import { UsersComponent } from './AppComponents/User/User.list.component';
 import { UserComponent } from './AppComponents/User/User.component';
 import { GroupsComponent } from './AppComponents/Group/Group.list.component';
 import { UserDialogComponent } from './AppComponents/User/User.dialog.component'
-import { GroupDialog } from './AppComponents/Group/Group.dialog.component'
+import { GroupDialogComponent } from './AppComponents/Group/Group.dialog.component'
+import { ParticipantsDialogComponent } from './AppComponents/Group/Participants.dialog.component'
+import { GroupComponent } from './AppComponents/Group/Group.component'
+
 
 const routes: Routes = [
   {path: '', redirectTo: '/users', pathMatch: 'full'},
   {path: 'users', component: UsersComponent},
   {path: 'groups', component: GroupsComponent},
-  {path: 'user/:id', component: UserComponent}
-  // { path: 'group/:id', component: GroupComponent }
+  {path: 'user/:id', component: UserComponent},
+  {path: 'group/:id', component: GroupComponent }
 ]
 
 @NgModule({
@@ -27,7 +30,9 @@ const routes: Routes = [
     UsersComponent,
     GroupsComponent,
     UserComponent,
-    GroupDialog,
+    ParticipantsDialogComponent,
+    GroupDialogComponent,
+    GroupComponent,
     UserDialogComponent
   ],
   imports: [

@@ -8,13 +8,13 @@
     display: flex;
     flex-direction: row;
     height: 100%;
-    &__navigetion {
+    &__navigation {
         width: 300px;
         display: flex;
         background: rgba(10, 10, 10, 0.9);
         flex-direction: column;
         justify-content: center;
-        &__div {
+        &__controls {
             height: 400px;
             display: flex;
             flex-direction: column;
@@ -33,7 +33,12 @@
                 background: rgba(#56146f, .8); // color:           
             }
         }
-        
+        .group {
+            background: #0f8f54;
+            &:hover {
+                background: rgba(#0f8f54, .8); // color:           
+            }
+        }
         &__icon {
             font-size: 120px;
         }

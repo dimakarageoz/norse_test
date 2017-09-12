@@ -1,4 +1,4 @@
-.user {
+.list {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -14,7 +14,7 @@
         justify-content: space-between;
         align-items: center;
     }
-    &__list {
+    &__table {
         margin-top: 20px;
         height: 90%;
         display: flex;
@@ -82,4 +82,13 @@
     font-size: 26px;
     font-family: 'Oxygen', sans-serif;
     color: $main;
+}
+
+.overflow {
+    height: 90%;
+    overflow: auto
+}
+
+.small-font {
+    font-size: 18px !important;
 }

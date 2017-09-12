@@ -1,0 +1,12 @@
+<div class="full-layout" (click)="toggle.emit()"></div>
+<div class="dialog">
+    <form class="dialog__form" (ngSubmit)="onSubmit.emit(email.value)">
+    <p class="dialog__title small-font">Input email of user which you wanna add</p>
+        <div class="dialog__input-block">
+            <input class="dialog__input form-control" [formControl]="email" required minlength="4" />
+        </div>
+        <button class="dialog__submit" type="submit" [disabled]="!email.valid" [ngClass]="{ 'disabled': !email.valid}">
+            ADD
+        </button>
+    </form>
+</div>

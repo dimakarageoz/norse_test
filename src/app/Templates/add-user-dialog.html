@@ -1,0 +1,30 @@
+<div class="full-layout" (click)="toggle.emit()"></div>
+    <div class="dialog">
+        <p class="dialog__title">User's form</p>
+        <form [formGroup]="myForm" class="dialog__form" (ngSubmit)="onSubmit.emit(myForm)">
+            <div class="dialog__input-block">
+                <p>Input name</p>
+                <input class="dialog__input" name="name" formControlName="name" />
+            </div>
+            <div class="dialog__input-block">
+                <p>Input surname</p>
+                <input class="dialog__input" name="surname" formControlName="surname" />
+            </div>
+            <div class="dialog__input-block">
+                <p>Input email</p>
+                <input class="dialog__input" name="email" formControlName="email" email />
+            </div>
+            <div class="dialog__input-block">
+                <p>Input phone</p>
+                <input class="dialog__input" type="tel" name="phone" formControlName="phone" />
+            </div>
+            <button
+                class="dialog__submit"
+                type="submit"
+                [disabled]="myForm.invalid"
+                [ngClass]="{ 'disabled': myForm.invalid}"
+            >
+                ADD
+            </button>
+        </form>
+    </div>

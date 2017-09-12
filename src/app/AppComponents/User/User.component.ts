@@ -13,11 +13,13 @@ import path from '../../Services/path'
 })
 export class UserComponent implements OnInit {
     id: number;
+    response: string;
     name = new FormControl();
     surname = new FormControl();
     email = new FormControl();
     phone = new FormControl();
-    private user: User;
+    user: User;
+
     constructor(
         private route: ActivatedRoute,
         private http: ApiService,
@@ -31,13 +33,10 @@ export class UserComponent implements OnInit {
         })
     }
     edit(user) {
+        
         let valid = true;
-        let req = {
-            name: '',
-            surname: '',
-            email: '',
-            phone: ''
-        }
+        let req = {name: '',surname: '',email: '',phone: ''};
+
         for (let item in user) {
             if(!user[item].valid && user[item].touched) {
                 valid = false
@@ -49,8 +48,10 @@ export class UserComponent implements OnInit {
         }
         if(valid) {
             this.http.edit(this.id, req, (res) => {
-                console.log('Yeeeee')
+                this.response = "User's props update"
             })
+        } else {
+            this.response = "Props no update. Bad request"
         }
     }
 }

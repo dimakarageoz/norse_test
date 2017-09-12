@@ -7,24 +7,28 @@ import { ApiService } from '../../Services/API.service'
 
 @Component({
     selector: 'app-groups',
-    templateUrl: './../../Templates/groups.html',
-    styleUrls: ['./../../Styles/color-purple.scss']
+    templateUrl: './../../Templates/groups.html'
 })
 export class GroupsComponent implements OnInit {
 
     search: string;
     dialog: boolean = false;
     groups: Group[] = [];
+    loaded: boolean = false;
     text: string = '';
     listGroups: Group[] = [];
     constructor(private http: ApiService) {
         this.http.path = path.group;
     }
-    ngOnInit() {
+    getGroup() {
         this.http.getList((res) => {
             this.listGroups = res;
             this.groups = res;
-        })
+            this.loaded = true;
+        }, ['name'])
+    }
+    ngOnInit() {
+        this.getGroup()
     }
     searchAction() {
         this.listGroups = this.groups.filter(item => item.name.indexOf(this.search) == 0)
@@ -36,7 +40,8 @@ export class GroupsComponent implements OnInit {
         this.dialogToggle()
         console.log(name)
         this.http.post({ name: name, participants: [] }, (res) => {
-            this.groups.push(new Group(res));
+            this.getGroup();
+            this.searchAction();
         })
     }
     delete(id) {
